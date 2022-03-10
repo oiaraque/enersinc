@@ -3,7 +3,9 @@ import { useState,useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPersona } from '../actions/index.js';
 import {useParams} from 'react-router-dom'
+
 import MaterialTable from 'material-table';
+
 //------------------------------------------------------------------------------------------------
 
 export default function Home(){
@@ -39,11 +41,33 @@ export default function Home(){
   },
   ]
 
+
   return (
     <div>
       <MaterialTable 
       columns={columnas}
       data={allPersonas}
+      title={"Usuarios data"}
+      actions={[
+          {
+            icon:'edit',
+            tooltip:'Editar persona',
+            onClick:(event,rowdata)=>alert('estas editando info')
+          },
+          {
+            icon:'delete',
+            tooltip:'Eliminar persona',
+            onClick:(event,rowdata)=>window.confirm('estas seguro de eliminar info?')
+          },
+        ]}
+      options={{
+        actionsColumnIndex: -1
+      }}
+      localization={{
+        header:{
+        actions:'Acciones'          
+        }
+      }}
       />
     </div>    
                 
