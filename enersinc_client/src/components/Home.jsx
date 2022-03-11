@@ -136,10 +136,7 @@ export default function Home(){
   function handleDelete(e){
     dispatch(deletePersona(usuarioSeleccionado))
     alert('Usuario eliminado!!..')
-    setUsuarioSeleccionado({
-       ...usuarioSeleccionado,
-       allPersonas: usuarioSeleccionado.Nombres.filter(c=> c !== e)
-    })
+    
   }
 
  //-------------------------------------------------------------------------------------------------------------------
