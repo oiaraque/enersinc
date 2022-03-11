@@ -14,6 +14,21 @@ function rootReducer(state=initialState, action){
 		return{
 			...state
 		}
+		case 'PUT_PERSONA':
+		return{
+			...state,
+			personas: (state.personas.length && [
+				...state.personas,
+				action.payload,
+			]) || [...state.personas, action.payload]
+		}
+		case 'DELETE_PERSONA':
+		return{
+			...state, 
+			personas: 
+			(state.personas.length && 
+				state.personas.filter((c)=>c !== action.payload))
+		}
 		default:
 		return state;
 	}
